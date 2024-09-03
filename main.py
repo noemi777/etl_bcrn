@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import os
 
@@ -31,7 +30,7 @@ def transform_data(df):
 
 def exploratory_analysis(df, output_dir):
     """
-    Realiza un análisis exploratorio de datos sobre el DataFrame combinado y guarda los gráficos en el directorio especificado.
+    Realiza un análisis exploratorio de datos sobre el DataFrame y guarda los gráficos en el directorio especificado.
     """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -50,7 +49,7 @@ def exploratory_analysis(df, output_dir):
     plt.xlabel("Estado")
     plt.ylabel("Valor de Importación")
     plt.title("Valor de Importación por Estado")
-    plt.xticks(rotation=90)  # Rotate the x-axis labels for better readability
+    plt.xticks(rotation=90)  
     plt.tight_layout()
     # Guardar el gráfico
     plt.savefig(os.path.join(output_dir, "import_value_by_state.png"))
@@ -96,8 +95,6 @@ def exploratory_analysis(df, output_dir):
     plt.tight_layout()
     # Guardar el gráfico
     plt.savefig(os.path.join(output_dir, "export_value_histogram.png"))
-    
-
 
 def load_processed_data(df, output_path):
     """
@@ -107,7 +104,7 @@ def load_processed_data(df, output_path):
         os.makedirs(os.path.dirname(output_path))
     df.to_csv(output_path, index=False)
 
-# Rutas de archivos
+# Ruta de los archivo
 file_paths = {
     "bc-mx": "processed_data/bc-mx-ef.csv",
 }
